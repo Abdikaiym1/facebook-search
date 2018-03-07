@@ -26,13 +26,14 @@
         android:layout_marginRight="24dp"
         android:fontFamily="sans-serif-light"
         android:textSize="12sp"
-        android:text="Введите координаты местонахождения или кликните на кнопку:"
+        android:text="@string/text_gps"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="1dp">
 
         <EditText
             android:id="@+id/edit_latitude"
@@ -61,5 +62,56 @@
             />
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="24dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/text_tag_radius"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="24dp" android:layout_marginTop="5dp" android:layout_marginRight="24dp"
+            android:hint="@string/tag"/>
+
+        <EditText
+            android:id="@+id/edit_radius"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" android:layout_marginRight="24dp"
+            android:layout_weight="1"
+            android:hint="@string/radius"
+            android:layout_marginEnd="24dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_query"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/start"
+            android:background="@color/accent"
+            android:theme="@style/Platform.AppCompat"/>
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

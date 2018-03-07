@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +56,9 @@ public class QueryFragment extends CoreFragment {
     private FloatingActionButton floatingActionButton;
     private EditText editLatitude;
     private EditText editLongitude;
+    private EditText editTag;
+    private EditText editRadius;
+    private Button buttonStart;
 
 
     public QueryFragment() {
@@ -72,19 +76,6 @@ public class QueryFragment extends CoreFragment {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 accessToken = loginResult.getAccessToken();
-                GraphRequest request = GraphRequest.newMeRequest(
-                        accessToken,
-                        new GraphRequest.GraphJSONObjectCallback() {
-                            @Override
-                            public void onCompleted(JSONObject object, GraphResponse response) {
-
-                            }
-                        });
-
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,address,age_range,can_review_measurement_request,context");
-                request.setParameters(parameters);
-                request.executeAsync();
             }
 
             @Override
@@ -105,6 +96,12 @@ public class QueryFragment extends CoreFragment {
 
         editLatitude = view.findViewById(R.id.edit_latitude);
         editLongitude = view.findViewById(R.id.edit_longitude);
+
+        editTag = view.findViewById(R.id.edit_tag);
+        editRadius = view.findViewById(R.id.edit_radius);
+        buttonStart = view.findViewById(R.id.button_query);
+
+        buttonStart.setOnClickListener(startButtonClick);
         return view;
     }
 
@@ -165,4 +162,31 @@ public class QueryFragment extends CoreFragment {
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+    View.OnClickListener startButtonClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (accessToken != null) {
+                GraphRequest request = GraphRequest.newGraphPathRequest(
+                        accessToken,
+                        "/search",
+                        new GraphRequest.Callback() {
+                            @Override
+                            public void onCompleted(GraphResponse response) {
+                                Log.d("response",response.toString());
+                            }
+                        });
+
+                Bundle parameters = new Bundle();
+                parameters.putString("q", "coffee");
+                parameters.putString("type", "place");
+                parameters.putString("center", "59.927202, 30.318907");
+                parameters.putString("distance", "1000");
+                request.setParameters(parameters);
+                request.executeAsync();
+            } else {
+                Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 }

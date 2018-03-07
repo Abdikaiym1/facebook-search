@@ -5,4 +5,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tag">Ваш TAG</string>
+    <string name="start">Start</string>
+    <string name="radius">Ваш радиус</string>
+    <string name="text_gps">Введите координаты местонахождения или кликните на кнопку:</string>
+    <string name="text_tag_radius">Введите какой то Тэг, например: cafe, coffee и Радиус:</string>
 </resources>
