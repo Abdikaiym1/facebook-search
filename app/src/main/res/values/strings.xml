@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">facebook-search-by_tag</string>
+    <string name="facebook_app_id">151571115529419</string>
+    <string name="fb_login_protocol_scheme">fb151571115529419</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
