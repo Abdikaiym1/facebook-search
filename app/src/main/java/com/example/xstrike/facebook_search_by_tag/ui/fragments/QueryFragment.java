@@ -26,7 +26,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.xstrike.facebook_search_by_tag.JsonToArrayCardView;
 import com.example.xstrike.facebook_search_by_tag.R;
+import com.example.xstrike.facebook_search_by_tag.beans.DateOfPlace;
 import com.example.xstrike.facebook_search_by_tag.beans.StructureQuery;
 import com.example.xstrike.facebook_search_by_tag.ui.MainActivity;
 import com.facebook.AccessToken;
@@ -38,7 +40,11 @@ import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +65,7 @@ public class QueryFragment extends CoreFragment {
     private EditText editTag;
     private EditText editRadius;
     private Button buttonStart;
+    private List<DateOfPlace> datesOfPlace;
 
 
     public QueryFragment() {
@@ -80,9 +87,8 @@ public class QueryFragment extends CoreFragment {
 
             @Override
             public void onCancel() {
-                Log.d("onCancel", "cancel");
-            }
 
+            }
             @Override
             public void onError(FacebookException error) {
 
@@ -173,7 +179,17 @@ public class QueryFragment extends CoreFragment {
                         new GraphRequest.Callback() {
                             @Override
                             public void onCompleted(GraphResponse response) {
-                                Log.d("response",response.toString());
+                                JSONObject jsonObject;
+                                jsonObject = response.getJSONObject();
+
+                                try {
+                                    JSONArray jsonArray =  jsonObject.getJSONArray("data");
+                                    JsonToArrayCardView jsonToArrayCardView = new JsonToArrayCardView(jsonArray);
+                                    datesOfPlace = jsonToArrayCardView.parseJsonArray();
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         });
 
@@ -182,6 +198,8 @@ public class QueryFragment extends CoreFragment {
                 parameters.putString("type", "place");
                 parameters.putString("center", "59.927202, 30.318907");
                 parameters.putString("distance", "1000");
+                parameters.putString("limit", "25");
+                parameters.putString("fields", "about,link,location,phone,picture.width(100).height(100)");
                 request.setParameters(parameters);
                 request.executeAsync();
             } else {
@@ -190,3 +208,5 @@ public class QueryFragment extends CoreFragment {
         }
     };
 }
+
+
