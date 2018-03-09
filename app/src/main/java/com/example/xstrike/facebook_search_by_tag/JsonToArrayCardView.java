@@ -28,6 +28,9 @@ public class JsonToArrayCardView {
             dateOfPlace.setLink(allJsonObject.optString("link"));
             dateOfPlace.setPhone(allJsonObject.optString("phone"));
             dateOfPlace.setId(allJsonObject.optString("id"));
+            dateOfPlace.setName(allJsonObject.optString("name"));
+            dateOfPlace.setName(allJsonObject.optString("rating_count"));
+
 
             JSONObject locationJsonObject = allJsonObject.getJSONObject("location");
             dateOfPlace.setCity(locationJsonObject.optString("city"));

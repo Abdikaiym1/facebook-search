@@ -10,8 +10,8 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 
-import com.example.xstrike.facebook_search_by_tag.FragmentAdapter;
 import com.example.xstrike.facebook_search_by_tag.R;
+import com.example.xstrike.facebook_search_by_tag.beans.DateOfPlace;
 import com.example.xstrike.facebook_search_by_tag.ui.fragments.CoreFragment;
 import com.example.xstrike.facebook_search_by_tag.ui.fragments.PreviewFragment;
 import com.example.xstrike.facebook_search_by_tag.ui.fragments.QueryFragment;
@@ -22,7 +22,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements QueryFragment.ListenerSendArray{
     private List<CoreFragment> pages;
     private FragmentAdapter fragmentAdapter;
     private ViewPager viewPager;
@@ -80,4 +80,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void sendArray(List<DateOfPlace> dateOfPlaces) {
+            pages.get(1).dateOfPlacesList = dateOfPlaces;
+    }
 }

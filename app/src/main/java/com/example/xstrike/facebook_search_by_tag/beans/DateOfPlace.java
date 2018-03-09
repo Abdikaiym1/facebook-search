@@ -15,6 +15,11 @@ public class DateOfPlace {
     private String phone;
     private String pictureURL;
     private String id;
+    private String name;
+    private String rating_cont;
+
+    public DateOfPlace() {
+    }
 
     public String getAbout() {
         return about;
@@ -94,5 +99,21 @@ public class DateOfPlace {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRating_cont() {
+        return rating_cont;
+    }
+
+    public void setRating_cont(String rating_cont) {
+        this.rating_cont = rating_cont;
     }
 }

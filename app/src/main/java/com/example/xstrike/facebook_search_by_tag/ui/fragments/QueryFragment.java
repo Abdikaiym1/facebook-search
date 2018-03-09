@@ -87,8 +87,8 @@ public class QueryFragment extends CoreFragment {
 
             @Override
             public void onCancel() {
-
             }
+
             @Override
             public void onError(FacebookException error) {
 
@@ -169,6 +169,14 @@ public class QueryFragment extends CoreFragment {
         alertDialog.show();
     }
 
+
+    ListenerSendArray listenerSendArray;
+    public interface ListenerSendArray {
+        void sendArray (List<DateOfPlace> dateOfPlaces);
+    }
+
+
+
     View.OnClickListener startButtonClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -186,7 +194,7 @@ public class QueryFragment extends CoreFragment {
                                     JSONArray jsonArray =  jsonObject.getJSONArray("data");
                                     JsonToArrayCardView jsonToArrayCardView = new JsonToArrayCardView(jsonArray);
                                     datesOfPlace = jsonToArrayCardView.parseJsonArray();
-
+                                    listenerSendArray.sendArray(datesOfPlace);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -199,7 +207,7 @@ public class QueryFragment extends CoreFragment {
                 parameters.putString("center", "59.927202, 30.318907");
                 parameters.putString("distance", "1000");
                 parameters.putString("limit", "25");
-                parameters.putString("fields", "about,link,location,phone,picture.width(100).height(100)");
+                parameters.putString("fields", "about,link,location,phone,picture.width(100).height(100),name,rating_count");
                 request.setParameters(parameters);
                 request.executeAsync();
             } else {
@@ -207,6 +215,13 @@ public class QueryFragment extends CoreFragment {
             }
         }
     };
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        listenerSendArray = (ListenerSendArray)getActivity();
+    }
 }
 
 

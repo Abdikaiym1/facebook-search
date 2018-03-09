@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.xstrike.facebook_search_by_tag.R;
+import com.example.xstrike.facebook_search_by_tag.beans.DateOfPlace;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+import java.util.List;
+
+
 public abstract class CoreFragment extends Fragment {
+
+    public List<DateOfPlace> dateOfPlacesList;
 
     public CoreFragment() {
     }

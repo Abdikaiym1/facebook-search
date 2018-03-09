@@ -1,4 +1,4 @@
-package com.example.xstrike.facebook_search_by_tag;
+package com.example.xstrike.facebook_search_by_tag.ui;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
