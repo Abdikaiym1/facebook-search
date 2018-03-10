@@ -54,11 +54,11 @@ public class PreviewRecyclerAdapter extends RecyclerView.Adapter<PreviewRecycler
         public ViewHolder(View itemView) {
             super(itemView);
 
-            text_location = itemView.findViewById(R.id.text_location);
-            text_name = itemView.findViewById(R.id.text_name);
-            text_rating_count = itemView.findViewById(R.id.text_rating_count);
-            text_phone = itemView.findViewById(R.id.text_phone);
-            imageView = itemView.findViewById(R.id.imageView);
+            text_location = (TextView)itemView.findViewById(R.id.text_location);
+            text_name = (TextView)itemView.findViewById(R.id.text_name);
+            text_rating_count = (TextView)itemView.findViewById(R.id.text_rating_count);
+            text_phone = (TextView)itemView.findViewById(R.id.text_phone);
+            imageView = (ImageView)itemView.findViewById(R.id.imageView);
         }
     }
 }

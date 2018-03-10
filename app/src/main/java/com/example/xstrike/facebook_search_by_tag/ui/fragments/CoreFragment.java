@@ -16,9 +16,10 @@ import java.util.List;
 
 public abstract class CoreFragment extends Fragment {
 
-    public List<DateOfPlace> dateOfPlacesList;
-
     public CoreFragment() {
     }
 
+    public void changeList(List<DateOfPlace> dateOfPlaces) {
+
+    }
 }

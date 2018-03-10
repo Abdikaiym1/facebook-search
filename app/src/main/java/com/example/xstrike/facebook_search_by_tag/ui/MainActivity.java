@@ -22,7 +22,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements QueryFragment.ListenerSendArray{
+public class MainActivity extends AppCompatActivity implements QueryFragment.ListenerSendArray {
     private List<CoreFragment> pages;
     private FragmentAdapter fragmentAdapter;
     private ViewPager viewPager;
@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity implements QueryFragment.Lis
         tabLayout.setupWithViewPager(viewPager);
     }
 
-
     @Override
     public void sendArray(List<DateOfPlace> dateOfPlaces) {
-            pages.get(1).dateOfPlacesList = dateOfPlaces;
+        Log.d("sendArray", "111");
+        pages.get(1).changeList(dateOfPlaces);
     }
 }

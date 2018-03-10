@@ -2,6 +2,7 @@ package com.example.xstrike.facebook_search_by_tag.ui.fragments;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -169,14 +170,6 @@ public class QueryFragment extends CoreFragment {
         alertDialog.show();
     }
 
-
-    ListenerSendArray listenerSendArray;
-    public interface ListenerSendArray {
-        void sendArray (List<DateOfPlace> dateOfPlaces);
-    }
-
-
-
     View.OnClickListener startButtonClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -216,11 +209,17 @@ public class QueryFragment extends CoreFragment {
         }
     };
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    ListenerSendArray listenerSendArray;
+    public interface ListenerSendArray {
+        void sendArray (List<DateOfPlace> dateOfPlaces);
+    }
 
-        listenerSendArray = (ListenerSendArray)getActivity();
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            listenerSendArray = (ListenerSendArray)activity;
+        } catch (Exception ignored) {}
     }
 }
 
