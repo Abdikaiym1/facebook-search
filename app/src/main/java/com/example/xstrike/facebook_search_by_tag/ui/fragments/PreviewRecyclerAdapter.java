@@ -3,6 +3,7 @@ package com.example.xstrike.facebook_search_by_tag.ui.fragments;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.xstrike.facebook_search_by_tag.R;
 import com.example.xstrike.facebook_search_by_tag.beans.DateOfPlace;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class PreviewRecyclerAdapter extends RecyclerView.Adapter<PreviewRecycler
         holder.text_rating_count.setText(dateOfPlace.getRating_cont());
         holder.text_name.setText(dateOfPlace.getName());
         holder.text_location.setText(dateOfPlace.getLatitude() + " " + dateOfPlace.getLongitude());
-
+        Picasso.get().load(dateOfPlace.getPictureURL()).into(holder.imageView);
     }
 
     @Override

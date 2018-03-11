@@ -199,7 +199,7 @@ public class QueryFragment extends CoreFragment {
                 parameters.putString("type", "place");
                 parameters.putString("center", "59.927202, 30.318907");
                 parameters.putString("distance", "1000");
-                parameters.putString("limit", "25");
+                parameters.putString("limit", "100");
                 parameters.putString("fields", "about,link,location,phone,picture.width(100).height(100),name,rating_count");
                 request.setParameters(parameters);
                 request.executeAsync();

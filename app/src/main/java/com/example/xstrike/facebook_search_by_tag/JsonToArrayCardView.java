@@ -1,5 +1,7 @@
 package com.example.xstrike.facebook_search_by_tag;
 
+import android.util.Log;
+
 import com.example.xstrike.facebook_search_by_tag.beans.DateOfPlace;
 
 import org.json.JSONArray;
@@ -40,8 +42,8 @@ public class JsonToArrayCardView {
             dateOfPlace.setStreet(locationJsonObject.optString("street"));
 
             JSONObject pictureJsonObject = allJsonObject.getJSONObject("picture");
-            dateOfPlace.setPictureURL(pictureJsonObject.optString("url"));
-
+            JSONObject datePictureJsonObject = pictureJsonObject.getJSONObject("data");
+            dateOfPlace.setPictureURL(datePictureJsonObject.optString("url"));
             datesOfPlace.add(dateOfPlace);
         }
 

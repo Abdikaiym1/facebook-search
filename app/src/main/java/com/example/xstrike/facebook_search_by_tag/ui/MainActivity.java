@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements QueryFragment.Lis
     private void setupTabLayout() {
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.set_on_off_on_icon);
+        tabLayout.getTabAt(1).setIcon(R.drawable.set_on_off_two_icon);
+
     }
 
     @Override
