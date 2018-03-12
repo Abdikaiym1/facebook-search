@@ -195,10 +195,10 @@ public class QueryFragment extends CoreFragment {
                         });
 
                 Bundle parameters = new Bundle();
-                parameters.putString("q", "coffee");
+                parameters.putString("q", String.valueOf(editTag.getText()));
                 parameters.putString("type", "place");
-                parameters.putString("center", "59.927202, 30.318907");
-                parameters.putString("distance", "1000");
+                parameters.putString("center", editLatitude.getText() + ", " + editLongitude.getText());
+                parameters.putString("distance", String.valueOf(editRadius.getText()));
                 parameters.putString("limit", "100");
                 parameters.putString("fields", "about,link,location,phone,picture.width(100).height(100),name,rating_count");
                 request.setParameters(parameters);
