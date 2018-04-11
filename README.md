@@ -3,8 +3,7 @@
 A fully Material SearchPlace app with minimal features, just enough to be useful.
 
 # Screenshots:
-<img src="/screenshots/device-2018-04-11-162455.png" height="400px"/>
-<img src="/screenshots/device-2018-04-11-162548.png" height="400px"/>
+<img src="/screenshots/device-2018-04-11-162455.png" height="400px"/> <img src="/screenshots/device-2018-04-11-162548.png" height="400px"/>
 
 ## License
 
