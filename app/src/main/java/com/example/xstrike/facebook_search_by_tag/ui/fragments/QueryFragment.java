@@ -209,6 +209,8 @@ public class QueryFragment extends CoreFragment {
         }
     };
 
+
+
     ListenerSendArray listenerSendArray;
     public interface ListenerSendArray {
         void sendArray (List<DateOfPlace> dateOfPlaces);
