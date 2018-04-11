@@ -3,12 +3,12 @@
 A fully Material SearchPlace app with minimal features, just enough to be useful.
 
 # Screenshots:
-<img src="device-2018-04-11-162455.png" height="400px"/>
-<img src="device-2018-04-11-162548.png" height="400px"/>
+<img src="/screenshots/device-2018-04-11-162455.png" height="400px"/>
+<img src="/screenshots/device-2018-04-11-162548.png" height="400px"/>
 
 ## License
-    '''
-    Copyright (c) 2018 CodeNight
+
+   Copyright (c) 2018 CodeNight
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,6 +28,4 @@ A fully Material SearchPlace app with minimal features, just enough to be useful
     CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-    '''
 
